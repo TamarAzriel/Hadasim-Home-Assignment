@@ -95,7 +95,39 @@ app.get('/api/students', (req, res) => {
     });
 });
 
+// Get a specific teacher by ID
+app.get('/api/teachers/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM teachers WHERE id = ?";
 
+    db.get(sql, [id], (err, row) => {
+        if (err) {
+            console.error("Error fetching teacher:", err.message);
+            return res.status(500).json({ error: "Database error." });
+        }
+        if (!row) {
+            return res.status(404).json({ error: "Teacher not found." });
+        }
+        res.status(200).json(row);
+    });
+});
+
+// Get a specific student by ID
+app.get('/api/students/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM students WHERE id = ?";
+
+    db.get(sql, [id], (err, row) => {
+        if (err) {
+            console.error("Error fetching student:", err.message);
+            return res.status(500).json({ error: "Database error." });
+        }
+        if (!row) {
+            return res.status(404).json({ error: "Student not found." });
+        }
+        res.status(200).json(row);
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
