@@ -7,13 +7,13 @@ built for Beit Sefer "Bnot Moshe" in Jerusalem.
 
 ## Architecture & Tech Stack
 
-| Layer    | Technology                  | Notes                                          |
-|----------|-----------------------------|------------------------------------------------|
-| Server   | Node.js + Express 5         | REST API + SSE push channel                    |
-| Database | SQLite 3 (WAL mode)         | Single-file, zero-config persistence           |
-| Client   | React 19 + Vite 8           | SPA, CSR only                                  |
-| Map      | Leaflet + react-leaflet     | Tile layer: CARTO Light (no API key required)  |
-| UI       | MUI v9 + Emotion            | RTL support via `stylis-plugin-rtl`            |
+| Layer    | Technology                  | 
+|----------|-----------------------------|
+| Server   | Node.js + Express 5         | 
+| Database | SQLite 3 (WAL mode)         | 
+| Client   | React 19 + Vite 8           | 
+| Map      | Leaflet + react-leaflet     |
+| UI       | MUI v9 + Emotion            |           
 
 ### Real-Time Communication — SSE over WebSocket
 
